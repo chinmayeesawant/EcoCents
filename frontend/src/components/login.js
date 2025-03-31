@@ -17,33 +17,71 @@ function Login({ setUser }) {
 
     return (
         <div style={{
-            maxWidth: "400px", margin: "50px auto", padding: "20px", textAlign: "center",
-            border: "1px solid #ddd", borderRadius: "8px", boxShadow: "2px 2px 10px rgba(0,0,0,0.1)"
+            minHeight: "100vh",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            background: "linear-gradient(to right, #fef9f4, #fff3e0)"
         }}>
-            <h2>Login</h2>
-            {error && <p style={{ color: "red" }}>{error}</p>}
-            <input
-                type="email"
-                placeholder="Enter Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                style={{ width: "100%", padding: "10px", marginBottom: "10px" }}
-            />
-            <input
-                type="password"
-                placeholder="Enter Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                style={{ width: "100%", padding: "10px", marginBottom: "10px" }}
-            />
-            <button
-                onClick={handleLogin}
-                style={{
-                    width: "100%", padding: "10px", background: "#ff9800",
-                    border: "none", color: "white", cursor: "pointer", borderRadius: "5px"
-                }}>
-                Login
-            </button>
+            <div style={{
+                maxWidth: "400px",
+                width: "100%",
+                padding: "30px",
+                borderRadius: "12px",
+                backgroundColor: "#ffffff",
+                boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)",
+                textAlign: "center"
+            }}>
+                <h1 style={{ marginBottom: "10px", color: "#ff9800" }}>🌿 EcoCents 🌿</h1>
+                {/* <p style={{ marginBottom: "20px", color: "#555" }}>Login to manage your sustainable savings</p> */}
+
+                {error && <p style={{ color: "red", marginBottom: "10px" }}>{error}</p>}
+
+                <input
+                    type="email"
+                    placeholder="Enter Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    style={{
+                        width: "90%",
+                        padding: "12px",
+                        marginBottom: "12px",
+                        borderRadius: "6px",
+                        border: "1px solid #ccc"
+                    }}
+                />
+                <input
+                    type="password"
+                    placeholder="Enter Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    style={{
+                        width: "90%",
+                        padding: "12px",
+                        marginBottom: "20px",
+                        borderRadius: "6px",
+                        border: "1px solid #ccc"
+                    }}
+                />
+                <button
+                    onClick={handleLogin}
+                    style={{
+                        width: "100%",
+                        padding: "12px",
+                        background: "#ff9800",
+                        border: "none",
+                        color: "white",
+                        fontWeight: "bold",
+                        cursor: "pointer",
+                        borderRadius: "6px",
+                        transition: "background 0.3s"
+                    }}
+                    onMouseOver={(e) => e.currentTarget.style.background = "#fb8c00"}
+                    onMouseOut={(e) => e.currentTarget.style.background = "#ff9800"}
+                >
+                    Login
+                </button>
+            </div>
         </div>
     );
 }
