@@ -25,7 +25,7 @@ function Home({ user, setUser }) {
                     setCart(parsed);
                 }
             } catch (e) {
-                console.error("❌ Failed to parse user.cart:", user.cart, e);
+                console.error("Failed to parse user.cart:", user.cart, e);
             }
         }
     }, [user]);
@@ -36,12 +36,12 @@ function Home({ user, setUser }) {
 
         const saveCart = async () => {
             try {
-                await axios.post("http://localhost:5001/update-cart", {
+                await axios.post("https://ecocents.onrender.com/update-cart", {
                     email: user.email,
                     cart,
                 });
             } catch (error) {
-                console.error("❌ Failed to save cart:", error);
+                console.error(" Failed to save cart:", error);
             }
         };
 
@@ -88,7 +88,7 @@ function Home({ user, setUser }) {
         }
 
         try {
-            const response = await axios.post("http://localhost:5001/checkout", {
+            const response = await axios.post("https://ecocents.onrender.com/checkout", {
                 email: user.email,
                 cart,
                 totalPrice,

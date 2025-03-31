@@ -10,7 +10,7 @@ function ProductList({ search, category, sortBy, addToCart }) {
     const itemsPerPage = 9; // Number of products per page
 
     useEffect(() => {
-        axios.get("http://localhost:5001/products").then((res) => {
+        axios.get("https://ecocents.onrender.com/products").then((res) => {
             setProducts(res.data);
             setFilteredProducts(res.data); // Show all products initially
         });

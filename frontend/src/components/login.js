@@ -8,7 +8,7 @@ function Login({ setUser }) {
 
     const handleLogin = async () => {
         try {
-            const response = await axios.post("http://localhost:5001/login", { email, password });
+            const response = await axios.post("https://ecocents.onrender.com/login", { email, password });
             setUser(response.data); // Store user data in state
         } catch (err) {
             setError("Invalid email or password.");
