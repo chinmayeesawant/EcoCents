@@ -10,7 +10,7 @@ mongoose.connect(MONGODB_URI)
 
 // Create a new user
 const newUser = new User({
-  email: "chinmayee@gmail.com",
+  email: "sheryl@gmail.com",
   password: "1234",
   wallet: 100.00,
   cart: [],
