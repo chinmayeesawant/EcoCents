@@ -17,16 +17,21 @@ function Home({ user, setUser }) {
     const navigate = useNavigate();
 
     // Load cart from user data on login
+    // useEffect(() => {
+    //     if (user?.cart) {
+    //         try {
+    //             const parsed = JSON.parse(user.cart.replace(/""/g, '"')); // Unescape quotes
+    //             if (Array.isArray(parsed)) {
+    //                 setCart(parsed);
+    //             }
+    //         } catch (e) {
+    //             console.error("Failed to parse user.cart:", user.cart, e);
+    //         }
+    //     }
+    // }, [user]);
     useEffect(() => {
-        if (user?.cart) {
-            try {
-                const parsed = JSON.parse(user.cart.replace(/""/g, '"')); // Unescape quotes
-                if (Array.isArray(parsed)) {
-                    setCart(parsed);
-                }
-            } catch (e) {
-                console.error("Failed to parse user.cart:", user.cart, e);
-            }
+        if (Array.isArray(user?.cart)) {
+            setCart(user.cart);
         }
     }, [user]);
 
@@ -94,7 +99,8 @@ function Home({ user, setUser }) {
                 totalPrice,
             });
 
-            setUser({ ...user, wallet: parseFloat(response.data.wallet), cart: "" });
+            // setUser({ ...user, wallet: parseFloat(response.data.wallet), cart: "" });
+            setUser({ ...user, wallet: parseFloat(response.data.wallet), cart: [] });
             setCart([]);
             trackEvent("Checkout", "Complete Purchase");
             navigate("/thank-you");

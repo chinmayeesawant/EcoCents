@@ -29,6 +29,7 @@ app.post("/login", async (req, res) => {
     const user = await User.findOne({ email: email.trim(), password: password.trim() });
 
     if (user) {
+        console.log("User cart on login:", user.cart);
         res.json({
             success: true,
             email: user.email,
