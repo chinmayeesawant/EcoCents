@@ -24,16 +24,6 @@ function getUsers() {
     });
 }
 
-// Function to write updated users to CSV
-// function writeUsers(users) {
-//     const csvHeader = "email,password,wallet,cart,checkout\n";
-//     const csvData = users.map(user =>
-//         `${user.email},${user.password},${user.wallet},"${user.cart}","${user.checkout}"`
-//     ).join("\n");
-
-//     fs.writeFileSync(USERS_CSV_PATH, csvHeader + csvData, "utf8");
-// }
-
 function writeUsers(users) {
     const csvHeader = "email,password,wallet,cart,checkout\n";
     const csvData = users.map(user =>
@@ -42,15 +32,6 @@ function writeUsers(users) {
 
     fs.writeFileSync(USERS_CSV_PATH, csvHeader + csvData, "utf8");
 }
-
-// function writeUsers(users) {
-//     const csvHeader = "email,password,wallet,cart,checkout\n";
-//     const csvData = users.map(user =>
-//         `${user.email},${user.password},${user.wallet},"${JSON.stringify(user.cart).replace(/"/g, '""')}","${(user.checkout || "").replace(/"/g, '""')}"`
-//     ).join("\n");
-
-//     fs.writeFileSync(USERS_CSV_PATH, csvHeader + csvData, "utf8");
-// }
 
 // API: User Login
 app.post("/login", async (req, res) => {
